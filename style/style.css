@@ -1,0 +1,540 @@
+/* |======================================================
+| Global & Utility Styles
+|======================================================
+*/
+::selection {
+    color: rgb(214, 103, 122);
+}
+
+/* Ensure placeholder text matches subscription field color */
+::placeholder {
+    color: green;
+}
+
+/* |======================================================
+| Navigation & Offcanvas (Cart)
+|======================================================
+*/
+.navbar {
+    background: linear-gradient(to right, #23074d, #cc5333);
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* High z-index to ensure visibility */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for better elevation */
+    border-bottom: 2px solid #ff8c00; /* Subtle accent line */
+}
+
+.navbar img {
+    /* Adjust logo position if necessary, but left: -50px is often better handled by layout classes */
+    left: -50px; 
+}
+
+.navbar-toggler {
+    background-color: aliceblue;
+}
+
+/* Basket Icon Styling (UPDATED COLOR) */
+.bi-basket3-fill {
+    margin: 15px;
+    font-size: 28px; /* Slightly larger for better tap target */
+    cursor: pointer;
+    color: white; /* Changed default color to white for high contrast */
+    transition: transform 0.2s ease, color 0.2s;
+}
+.bi-basket3-fill:hover {
+    transform: scale(1.15); /* Stronger hover scale */
+    color: #ffd700; /* Brighter gold on hover */
+}
+/* Search Button Styling (UPDATED HOVER COLOR) */
+.btn-search {
+    background-color: #23074d; /* Dark primary color */
+    color: white;
+    border: 1px solid #ff8c00; /* Accent border */
+    border-radius: 6px;
+    padding: 8px 15px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s, color 0.3s;
+}
+.btn-search:hover {
+    background-color: #ff8c00; /* Changed hover background to gold accent */
+    border-color: #ff8c00;
+    color: #23074d; /* Changed text color for contrast against gold */
+    transform: translateY(-1px);
+}
+
+
+/* Offcanvas (Cart Sidebar) Global Settings */
+#offcanvasExample {
+    width: 35%; 
+    max-width: 450px; /* Max width for desktop/large screens */
+}
+
+.offcanvas-body {
+    position: relative;
+    padding-bottom: 80px; /* Space for fixed checkout button */
+}
+
+/* Cart Item List scrolling area */
+.cart-item-list {
+    max-height: 85vh; /* Use viewport height for better control */
+    overflow-y: auto;
+    padding: 10px;
+}
+.cart-item-list::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for cleaner look */
+}
+
+/* --- Cart Item Specific Styles (NEW) --- */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Spacing between image and text */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background-color: #f8f9fa; /* Light background for contrast */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle separation */
+    transition: background-color 0.2s;
+}
+
+.cart-item:hover {
+    background-color: #e9ecef; /* Slight visual feedback on hover */
+}
+
+.cart-item img {
+    width: 60px; /* Small, fixed size for the thumbnail */
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.cart-item-details {
+    flex-grow: 1; /* Allows details to take up remaining space */
+}
+
+.cart-item-details h6 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.cart-item-details p {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin: 0;
+}
+
+.cart-item-remove {
+    cursor: pointer;
+    color: #dc3545; /* Danger color for delete icon */
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+
+.cart-item-remove:hover {
+    color: #c82333;
+}
+/* --- End Cart Item Specific Styles --- */
+
+/* Checkout Button container - fixed at the bottom */
+.checkout {
+    position: absolute;
+    bottom: 10px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; /* Ensure it spans most of the container width */
+}
+.checkout button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background-color: #cc5333; /* Primary accent color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(204, 83, 51, 0.4); /* Subtle shadow */
+    transition: all 0.2s ease-in-out;
+}
+.checkout button:hover {
+    background-color: #b34a2e; /* Slightly darker on hover */
+    box-shadow: 0 6px 12px rgba(204, 83, 51, 0.6);
+}
+.checkout button:active {
+    transform: scale(0.99); /* Press down effect */
+}
+
+
+/* |======================================================
+| Category Sections (Home Page)
+|======================================================
+*/
+.categary-content {
+    margin-top: 100px;
+}
+
+.categary-data {
+    position: relative;
+}
+
+.categary-data > .card {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.categary-data > .card > img,
+.categary-data > .card > .cate-watch {
+    height: 400px; /* Default height */
+    object-fit: cover;
+    cursor: pointer;
+    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Watch category has a different height */
+.categary-data > .card > .cate-watch {
+    height: 810px;
+} 
+
+.categary-data:hover > .card > img,
+.categary-data:hover > .card > .cate-watch {
+    transform: scale(1.08); /* Enhanced scale for visual appeal */
+}
+
+/* Text and Overlay */
+.categary-data > .card > .discription {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    opacity: 0.9; /* Slightly more opaque text */
+    z-index: 15;
+}
+.categary-data > .card > .opacity,
+.categary-data > .card > .opacity-watch {
+    width: 100%;
+    height: 100%; /* Use 100% height relative to the card */
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(43, 42, 42, 0.18);
+    z-index: 10;
+}
+
+
+/* |======================================================
+| Product Cards (Grid) (UPDATED MODERN DESIGN)
+|======================================================
+*/
+.product > .card {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    /* Clean, high-contrast look */
+    background-color: #ffffff; 
+    border: 1px solid #f0f0f0; 
+    border-radius: 12px; /* Increased rounding */
+    
+    /* Standard interactive effects */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.5, 1); /* Smoother overall transition */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
+    transform: translateY(0); 
+}
+
+/* Hover state: Lifts card and applies a subtle darkness to the entire card */
+.product > .card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); 
+    transform: translateY(-8px); 
+    background-color: rgba(35, 7, 77, 0.03); /* Very slight tint on hover */
+}
+
+.product .card img {
+    height: 250px; /* Adjusted height for better presentation */
+    width: 100%;
+    object-fit: contain; /* Use contain for electronics/clean product shots */
+    padding: 15px; /* Padding to ensure image doesn't touch edges */
+    transform: scale(1);
+    transition: transform 0.5s ease-out;
+}
+
+.product:hover > .card > img {
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+/* Detail overlay at the bottom - Now acts as the main action area */
+.product > .card > .card-body > .detail {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Height of the visible action bar */
+    
+    /* Initially invisible and darker */
+    background-color: #23074d; /* Dark primary color */
+    opacity: 0; /* Hidden by default */
+    transform: translateY(100%); /* Start 100% below its final position */
+    
+    /* Transition applied to both opacity and transform */
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Distribute icons evenly */
+    padding: 0 10px;
+    border-radius: 0 0 12px 12px; /* Match card border radius only at the bottom */
+}
+
+/* Reveal the action bar on product hover */
+.product:hover > .card > .card-body > .detail {
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Slides up to position */
+}
+
+.detail > i {
+    font-size: 20px; /* Slightly smaller, more refined icon size */
+    color: white; /* Icons are white against dark background */
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.detail > i:hover {
+    transform: scale(1.3); /* Stronger icon interaction */
+    color: #ff8c00; /* Gold accent on hover */
+}
+
+
+/* |======================================================
+| Product Detail Page Styles
+|======================================================
+*/
+
+/* Consolidated Carousel Image Height */
+.carousel-customize > .carousel-item > img {
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Product Detail Images/Thumbnails */
+.small-product {
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+.small-product:hover,
+.small-product.active {
+    opacity: 1;
+    border: 2px solid #ff8c00; /* Added border to active/hover thumbnail */
+    border-radius: 4px;
+}
+
+/* Color Swatches */
+.color {
+    width: 40px;
+    height: 40px;
+    margin: 0px 8px;
+    cursor: pointer;
+    border-radius: 50%; /* Changed to circles for color swatches */
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.color:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 3px #cc5333;
+}
+
+.detail-add-cart {
+    margin-top: 150px;
+}
+.product-page img {
+    height: 350px; /* Used for related products section */
+}
+
+
+/* |======================================================
+| Modal (Quick View)
+|======================================================
+*/
+.modal-dialog {
+    max-width: 50%;
+    border-radius: 12px;
+}
+.image-modal {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Quantity Control Styles (assumes input/button elements) */
+.qty-control input[type="number"] {
+    padding: 8px;
+    outline: none;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 50px;
+}
+.qty-control button {
+    padding: 8px 15px;
+    font-weight: 900;
+    border: none;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    transition: transform 0.1s;
+}
+
+.qty-control button:active {
+    transform: scale(0.95); /* Adjusted from 1.05 for a press effect */
+}
+
+
+/* |======================================================
+| Footer & Contact
+|======================================================
+*/
+
+/* Subscription Field */
+#subcript {
+    padding: 17px;
+    outline: none;
+    border: 1px solid green;
+    border-radius: 5px;
+    color: green;
+    font-size: 15px;
+    width: 100%; /* Ensure it spans the container */
+}
+
+/* Contact Icons */
+.contact-icon {
+    margin-top: 30px;
+}
+
+.contact-icon > a > i {
+    font-size: 30px;
+    color: rgb(22, 94, 94);
+    margin: 0px 20px;
+    transition: color 0.3s;
+}
+.contact-icon > a > i:hover {
+    color: #cc5333; /* Hover color accent */
+}
+
+.footer {
+    width: 100%;
+    margin-top: 100px;
+    background-color: #1a1a1a; /* Slightly lighter black for depth */
+    color: white;
+    padding: 100px 50px;
+}
+.con-icon > a > i {
+    color: #7303c0;
+}
+
+
+/* |======================================================
+| RESPONSIVENESS (MOBILE-FIRST)
+|======================================================
+*/
+
+/* --- Mobile Devices (Max 767px) --- */
+@media screen and (max-width: 767px) {
+    
+    /* Global Container Padding */
+    .product {
+        padding: 0 10px;
+    }
+
+    /* Navbar Carousel (Main Slider) */
+    .carousel-item > img {
+        height: 180px;
+    }
+
+    /* Offcanvas (Cart) */
+    #offcanvasExample {
+        width: 100%; /* Full screen on mobile is critical */
+    }
+    .checkout button {
+        width: 100%;
+    }
+    .offcanvas-body {
+        padding-bottom: 100px;
+    }
+
+    /* Cart Item Specific Mobile Adjustments */
+    .cart-item {
+        gap: 10px;
+        padding: 8px;
+    }
+    .cart-item img {
+        width: 50px;
+        height: 50px;
+    }
+    .cart-item-details h6 {
+        font-size: 0.9rem;
+    }
+    .cart-item-details p {
+        font-size: 0.8rem;
+    }
+    /* End Cart Item Mobile Adjustments */
+
+    /* Product Cards */
+    .product .card img {
+        height: 150px; /* Smaller images on mobile (UPDATED) */
+    }
+
+    /* Category Images */
+    .categary-data > .card img {
+        height: 250px;
+    }
+    .categary-data > .card > .cate-watch {
+        height: 500px; /* Reduced watch height */
+    }
+
+    /* Product Detail Page */
+    .carousel-customize > .carousel-item > img {
+        height: 350px;
+    }
+
+    /* Modal */
+    .modal-dialog {
+        max-width: 95%;
+        margin: 0.5rem auto;
+    }
+    .image-modal {
+        height: 250px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 50px 15px;
+    }
+}
+
+/* --- Tablet Devices (768px to 1023px) --- */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    
+    /* Offcanvas (Cart) */
+    #offcanvasExample {
+        width: 70%; /* Wider but not full screen */
+        max-width: none;
+    }
+
+    /* Product List Image */
+    .product .card img {
+        height: 300px;
+    }
+
+    /* Category Images */
+    .categary-data > .card img {
+        height: 300px;
+    }
+    .categary-data > .card > .cate-watch {
+        height: 650px;
+    }
+
+    /* Modal */
+    .modal-dialog {
+        max-width: 80%;
+    }
+}
